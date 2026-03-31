@@ -96,3 +96,9 @@ docker push YOUR_DOCKERHUB_USERNAME/ktgkdevops-frontend:latest
 - [ ] Co toi thieu 5 commit message ro rang
 - [ ] Co it nhat 3 branch (`main/master`, `develop`, `feature`)
 - [ ] Push image backend + frontend len Docker Hub
+
+## 6. Branching strategy
+
+- `main`: nhanh on dinh de nop bai
+- `develop`: nhanh tong hop code
+- `feature/*`: nhanh phat trien tinh nang rieng
