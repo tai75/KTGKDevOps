@@ -32,10 +32,15 @@ studentForm.addEventListener("submit", async (event) => {
 
   const formData = new FormData(studentForm);
   const payload = {
-    fullName: formData.get("fullName"),
-    studentCode: formData.get("studentCode"),
-    className: formData.get("className")
+    fullName: String(formData.get("fullName") || "").trim(),
+    studentCode: String(formData.get("studentCode") || "").trim(),
+    className: String(formData.get("className") || "").trim()
   };
+
+  if (!payload.fullName || !payload.studentCode || !payload.className) {
+    message.textContent = "Vui long nhap day du thong tin.";
+    return;
+  }
 
   try {
     const response = await fetch("/api/students", {
