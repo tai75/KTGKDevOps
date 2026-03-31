@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KTGKDevOps - Student Manager</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="bg-shape"></div>
+    <main class="container">
+      <header>
+        <h1>KTGKDevOps</h1>
+        <p>Frontend lấy dữ liệu từ backend và lưu dữ liệu thật qua MongoDB.</p>
+        <nav>
+          <a href="/">Trang chính</a>
+          <a href="/about">Trang thông tin cá nhân</a>
+        </nav>
+      </header>
+
+      <section class="card">
+        <h2>Thêm sinh viên</h2>
+        <form id="student-form">
+          <div class="field">
+            <label for="fullName">Họ tên</label>
+            <input id="fullName" name="fullName" required />
+          </div>
+          <div class="field">
+            <label for="studentCode">Mã số sinh viên</label>
+            <input id="studentCode" name="studentCode" required />
+          </div>
+          <div class="field">
+            <label for="className">Lớp</label>
+            <input id="className" name="className" required />
+          </div>
+          <button type="submit">Lưu vào database</button>
+        </form>
+        <p id="message"></p>
+      </section>
+
+      <section class="card">
+        <div class="section-title">
+          <h2>Danh sách sinh viên</h2>
+          <button id="reload-btn" type="button">Tải lại</button>
+        </div>
+        <ul id="student-list"></ul>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
