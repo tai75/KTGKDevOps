@@ -27,6 +27,8 @@ Du an giua ky DevOps (Local) dap ung cac yeu cau: Backend + Frontend + Database 
 
 ## 2. Chay du an bang Docker Compose
 
+Ban co the dung script PowerShell da tao san trong thu muc `scripts/` va huong dan nhanh tai `docs/QUICK_SUBMISSION.md`.
+
 ### Buoc 1: vao thu muc project
 ```bash
 cd KTGKDevOps
@@ -35,6 +37,11 @@ cd KTGKDevOps
 ### Buoc 2: build va chay
 ```bash
 docker compose up -d --build
+```
+
+Hoac chay script tu dong (Windows PowerShell):
+```powershell
+.\scripts\01-run-and-test.ps1
 ```
 
 ### Buoc 3: kiem tra
@@ -86,6 +93,11 @@ docker push YOUR_DOCKERHUB_USERNAME/ktgkdevops-backend:latest
 docker push YOUR_DOCKERHUB_USERNAME/ktgkdevops-frontend:latest
 ```
 
+Hoac chay script tu dong:
+```powershell
+.\scripts\03-dockerhub-push.ps1 -DockerHubUser "YOUR_DOCKERHUB_USERNAME" -Tag "latest"
+```
+
 ## 5. Checklist nop bai
 
 - [ ] Chay duoc toan bo he thong bang `docker compose up -d --build`
@@ -96,3 +108,14 @@ docker push YOUR_DOCKERHUB_USERNAME/ktgkdevops-frontend:latest
 - [ ] Co toi thieu 5 commit message ro rang
 - [ ] Co it nhat 3 branch (`main/master`, `develop`, `feature`)
 - [ ] Push image backend + frontend len Docker Hub
+
+## 6. Branching strategy
+
+- `main`: nhanh on dinh de nop bai
+- `develop`: nhanh tong hop code
+- `feature/*`: nhanh phat trien tinh nang rieng
+
+Co the merge theo flow da dong goi san:
+```powershell
+.\scripts\02-git-merge-flow.ps1 -FeatureBranch "feature/student-api"
+```
